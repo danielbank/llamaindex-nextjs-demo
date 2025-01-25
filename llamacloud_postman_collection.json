@@ -1,0 +1,200 @@
+{
+  "info": {
+    "_postman_id": "949b2408-cae4-4a77-a5d2-690dcd09662c",
+    "name": "LlamaIndex Next.js Demo",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "37928922"
+  },
+  "item": [
+    {
+      "name": "Files",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "<LLAMA_CLOUD_API_KEY>",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://api.cloud.llamaindex.ai/api/v1/files?project_id={{project_id}}&organization_id={{organization_id}}",
+          "protocol": "https",
+          "host": ["api", "cloud", "llamaindex", "ai"],
+          "path": ["api", "v1", "files"],
+          "query": [
+            {
+              "key": "project_id",
+              "value": "{{project_id}}"
+            },
+            {
+              "key": "organization_id",
+              "value": "{{organization_id}}"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "File",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "<LLAMA",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://api.cloud.llamaindex.ai/api/v1/files/{{file_id}}?project_id={{project_id}}&organization_id={{organization_id}}",
+          "protocol": "https",
+          "host": ["api", "cloud", "llamaindex", "ai"],
+          "path": ["", "api", "v1", "files", "{{file_id}}"],
+          "query": [
+            {
+              "key": "project_id",
+              "value": "{{project_id}}"
+            },
+            {
+              "key": "organization_id",
+              "value": "{{organization_id}}"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Pipeline Files2",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "<LLAMA",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://api.cloud.llamaindex.ai/api/v1/pipelines/{{pipeline_id}}/files2?project_id={{project_id}}&organization_id={{organization_id}}",
+          "protocol": "https",
+          "host": ["api", "cloud", "llamaindex", "ai"],
+          "path": ["api", "v1", "pipelines", "{{pipeline_id}}", "files2"],
+          "query": [
+            {
+              "key": "project_id",
+              "value": "{{project_id}}"
+            },
+            {
+              "key": "organization_id",
+              "value": "{{organization_id}}"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Pipeline File Status",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "<LLAMA",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://api.cloud.llamaindex.ai/api/v1/pipelines/{{pipeline_id}}/files/{{file_id}}/status",
+          "protocol": "https",
+          "host": ["api", "cloud", "llamaindex", "ai"],
+          "path": [
+            "api",
+            "v1",
+            "pipelines",
+            "{{pipeline_id}}",
+            "files",
+            "{{file_id}}",
+            "status"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Pipeline Documents",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "<LLAMA",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://api.cloud.llamaindex.ai/api/v1/pipelines/{{pipeline_id}}/documents",
+          "protocol": "https",
+          "host": ["api", "cloud", "llamaindex", "ai"],
+          "path": ["api", "v1", "pipelines", "{{pipeline_id}}", "documents"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Pipeline Documents Chunks",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "<LLAMA",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://api.cloud.llamaindex.ai/api/v1/pipelines/{{pipeline_id}}/documents/{{document_id}}/chunks",
+          "protocol": "https",
+          "host": ["api", "cloud", "llamaindex", "ai"],
+          "path": [
+            "api",
+            "v1",
+            "pipelines",
+            "{{pipeline_id}}",
+            "documents",
+            "{{document_id}}",
+            "chunks"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
