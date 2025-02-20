@@ -18,6 +18,18 @@ initSettings();
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
+// Handle CORS preflight requests
+export async function OPTIONS() {
+  return new Response(null, {
+    status: 204,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+      "Access-Control-Allow-Headers": "Content-Type, Authorization",
+    },
+  });
+}
+
 export async function POST(request: NextRequest) {
   // Init Vercel AI StreamData and timeout
   const vercelStreamData = new StreamData();
@@ -72,10 +84,20 @@ export async function POST(request: NextRequest) {
         });
     };
 
-    return LlamaIndexAdapter.toDataStreamResponse(response, {
+    // Use the LlamaIndexAdapter to convert the stream
+    const stream = LlamaIndexAdapter.toDataStreamResponse(response, {
       data: vercelStreamData,
       callbacks: { onCompletion },
     });
+
+    stream.headers.set("Access-Control-Allow-Origin", "*");
+    stream.headers.set("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+    stream.headers.set(
+      "Access-Control-Allow-Headers",
+      "Content-Type, Authorization",
+    );
+
+    return stream;
   } catch (error) {
     console.error("[LlamaIndex]", error);
     return NextResponse.json(
